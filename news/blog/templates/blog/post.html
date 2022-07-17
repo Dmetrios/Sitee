@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1> Автор - {{posts.author}}</h1>
+<h1>{{posts.title}}</h1>
+{% if posts.photo %}
+<p><img class="img-article-left" src="{{posts.photo.url}}"></p>
+{% endif %}
+{{posts.content|linebreaks}}
+<a href="{% url 'post_update' posts.slug %}"> Редактировать</a>
+<a href="{% url 'post_delete' posts.slug %}"> Удалить</a>
+{% endblock %}
